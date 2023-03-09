@@ -10,4 +10,7 @@ Welcome to my Github page!
 
 
 <p>
-	<img width="50%" align="right" src="https://github-readme-stats.vercel.app/api?username=kitjacky&show_icons=true&hide_border=true" />
+
+<img width="30%" align="right" src="https://github-readme-stats.vercel.app/api/top-langs/?username=kitjacky&theme=radical" />
+
+<img width="50%" align="right" src="https://github-readme-stats.vercel.app/api?username=kitjacky&show_icons=true&hide_border=true&theme=radical" />
