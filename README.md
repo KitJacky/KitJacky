@@ -32,6 +32,8 @@ Welcome to JK Github page!
 <code><img width="10%" src="https://www.vectorlogo.zone/logos/redhat/redhat-ar21.svg"></code>
 <code><img width="10%" src="https://www.vectorlogo.zone/logos/ubuntu/ubuntu-ar21.svg"></code>
 <code><img width="10%" src="https://www.vectorlogo.zone/logos/centos/centos-ar21.svg"></code>
+<code><img width="10%" src="https://www.vectorlogo.zone/logos/opendns/opendns-ar21.svg"></code>
+<code><img width="10%" src="https://www.vectorlogo.zone/logos/cloudflare/cloudflare-ar21.svg"></code>
 
 I personally tend to gravitate towards new technologies like the Internet, blockchain, Linux, decentralization, programming languages, AI, and open source software. I'm the type of person who is intrigued by cutting-edge technologies and enjoys keeping up with the latest innovations in these areas. Advancements like sophisticated algorithms or machine learning systems fascinate me. I like being an early adopter of new technologies when possible, and I appreciate the scientific and engineering progress that enables these high-tech developments. In general, I have an affinity for technology and an enthusiasm for its advancement and future potential, especially in domains such as networking, computing, and artificial intelligence. 
 
