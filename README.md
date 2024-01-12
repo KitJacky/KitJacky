@@ -5,6 +5,11 @@
 [![Linkedin](https://img.shields.io/badge/-LinkedIn-blue?style=flat&logo=Linkedin&logoColor=white)](https://www.linkedin.com/in/jacky-kit-6541b640/)
 [![Gmail](https://img.shields.io/badge/-Gmail-c14438?style=flat&logo=Gmail&logoColor=white)](mailto:jk@jk.hk)
 [![Github](https://img.shields.io/badge/-Github-000?style=flat&logo=Github&logoColor=white)](https://github.com/kitJacky)
+[![Medium](https://img.shields.io/badge/-Medium-000?style=flat&logo=Medium&logoColor=white)](https://jackykit.medium.com)
+
+
+[JK Labs](https://3jk.net)
+
 
 Welcome to JK Github page!
 
