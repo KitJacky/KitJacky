@@ -1,6 +1,6 @@
 # JKLabNFT Smart Contract
 
-**Date:** 2021-09-27
+**Date:** 2023-09-20
 **Author:** [JackyKit](https://3jk.net)
 
 https://polygonscan.com/address/0xa147730f7e52d91a6be5636d1a70163230afcf1a#code
