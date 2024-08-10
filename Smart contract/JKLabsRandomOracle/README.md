@@ -3,6 +3,10 @@
 Last Updated: 2024-07-18
 Version 0.4
 
+
+arbiscan: https://arbiscan.io/address/0x9F0315Dd78887B94199F02cBe1387f3D168F7532
+
+
 ## Introduction
 **JKLabsRandomOracle** is a prototype developed as part of a personal research project to solve the problem of predictability of randomness within an Ethernet Virtual Machine (EVM). The project aims to develop a simplified version of the Chainlink Verifiable Random Function (VRF) using off-chain random generation and on-chain authentication using cryptographic signatures. The prototype is currently in its fourth beta version and focuses on integrating algorithms such as Mimblewimble (Elliptic Curve Cryptography) and ZK to enhance the security and unpredictability of randomness in smart contracts. Also, the backend is currently being developed in python, but since I have a vision of releasing a saas version, I won't make the backend public at this stage as I'm still developing it and doing research for Mimblewimble ( https://andrea.corbellini.name/2015/05/17/elliptic-curve-cryptography-a-gentle-introduction/ ).
 
@@ -11,6 +15,37 @@ In the context of blockchain and smart contracts, the generation of unpredictabl
 
 ### Implementation and Testing
 This prototype has undergone several iterations, reaching its fourth testing version. It has been deployed and tested on the Arbitrum Mainnet, with the smart contract address available on Arbiscan for review: [Contract on Arbiscan](https://arbiscan.io/address/0x9f0315dd78887b94199f02cbe1387f3d168f7532#code). A transaction example demonstrating the receipt and verification of a random number can be found here: [Transaction on Arbiscan](https://arbiscan.io/tx/0x3efbea1a71a7fc949fe473ce9a6a9322a795bb989555dd6e5ec61773d556084b).
+
+
+##JKLabsRandomOracle (POC)
+
+### Overview
+
+`JKLabsRandomOracle` is a proof of concept (POC) developed to explore generating and verifying randomness in a blockchain environment. The project focuses on producing randomness off-chain using cryptographic methods like Mimblewimble and zk-proofs and then verifying this randomness on-chain. This POC demonstrates the feasibility of securely integrating off-chain randomness into smart contracts, which can be used for various decentralized applications.
+
+### POC Data Example
+
+The following table shows an example of the data generated and used in the `JKLabsRandomOracle` POC. This data was part of a transaction recorded on the Arbitrum network.
+
+#### Example Data
+
+| #  | Name                     | Type    | Data                                                                                                                                   |
+|----|--------------------------|---------|----------------------------------------------------------------------------------------------------------------------------------------|
+| 0  | `_randomNumber`           | uint256 | 17618359812606458698                                                                                                                    |
+| 1  | `_signature`              | bytes   | 0x955fc58288a82a724ef8d8d4bb54ac07930b2b558584a88ed675e69e9a8dbdd47a85c500debd00ecb4ddcdcdce05729a048dbe1f3e9bfcd46ac594ecda65a1831b  |
+| 2  | `_publicKey`              | bytes   | 0x273949b73362c4503690ff7befc34991e995ce43e36142695b82d62a0e9f3915e782b2e13c69588e08f07622df5d4e6c14bf67e010415d128fa4fadc69afa2d3   |
+| 3  | `_mimblewimbleProofValid` | bool    | true                                                                                                                                    |
+
+**Transaction Link:** [Arbitrum Transaction on Arbiscan](https://arbiscan.io/tx/0x3efbea1a71a7fc949fe473ce9a6a9322a795bb989555dd6e5ec61773d556084b)
+
+#### Description of Data
+
+- **_randomNumber**: A 256-bit random number generated off-chain.
+- **_signature**: The cryptographic signature proving the authenticity of the random number.
+- **_publicKey**: The public key associated with the signature, used to verify the authenticity.
+- **_mimblewimbleProofValid**: A boolean value indicating whether the Mimblewimble proof is valid.
+
+This data was generated during a POC test of `JKLabsRandomOracle` and serves as a proof that the off-chain generated randomness and its associated proofs can be effectively verified on-chain.
 
 
 ---
@@ -148,5 +183,5 @@ If you re unable to donate but still want to help, there are several other ways 
 Thank you for your support in whatever form it takes. Together, we can continue to make this project even better!
 
 ---
-
+feel free to reach out to me on [X](https://x.com/kitjacky)
 JK Labs : https://3jk.net
