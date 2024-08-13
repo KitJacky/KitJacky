@@ -4,8 +4,12 @@ Version 1.0
 Last Updated: 2024-08-11
 **Author:** [JackyKit](https://3jk.net)
 
+Demo URL: https://jkrpg.3jk.net/
+
 Tested : https://sepolia.etherscan.io/address/0xdfe4cc19adc0e4b117f926e3bd5788d92dc44925
+
 Opensea: https://testnets.opensea.io/collection/jkrpg
+
 
 ![](https://raw.seadn.io/files/86726b3bcec153069f776c4318fda378.svg)
 
