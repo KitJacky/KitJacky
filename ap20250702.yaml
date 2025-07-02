@@ -1,0 +1,2027 @@
+openapi: 3.0.3
+info:
+  title: iJK Music Platform API
+  version: 1.0.0
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+paths:
+  "/collab/projects/{id}/roles/invite":
+    post:
+      summary: Invite a user to a project role
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - role_id
+                - user_id
+              properties:
+                role_id:
+                  type: integer
+                user_id:
+                  type: integer
+      responses:
+        "200":
+          description: Invitation sent
+  /webhooks/stripe:
+    post:
+      summary: Handle Stripe webhook events
+      tags:
+        - Services
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+      responses:
+        "200":
+          description: Acknowledged
+  /logout:
+    post:
+      summary: Revoke the current token
+      tags:
+        - Auth
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Logged out
+  "/collab/projects/{id}/roles":
+    get:
+      summary: List roles for a project
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Role list
+    post:
+      summary: Add a role slot to a project
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                max_slots:
+                  type: integer
+      responses:
+        "200":
+          description: Created role
+  /change-password:
+    post:
+      summary: Change the current user's password
+      tags:
+        - Auth
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - old_password
+                - new_password
+              properties:
+                old_password:
+                  type: string
+                new_password:
+                  type: string
+      responses:
+        "200":
+          description: Password changed
+  /me:
+    get:
+      summary: Get current user info and profile
+      tags:
+        - Auth
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: User info with profile
+  /forgot-password:
+    post:
+      summary: Send a password reset email
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+              properties:
+                email:
+                  type: string
+      responses:
+        "200":
+          description: Request acknowledged
+  /reset-password:
+    post:
+      summary: Reset password with a token
+      tags:
+        - Auth
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - token
+                - password
+              properties:
+                token:
+                  type: string
+                password:
+                  type: string
+      responses:
+        "200":
+          description: Reset result
+  /upload:
+    post:
+      summary: Upload an audio file
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                audio:
+                  type: string
+                  format: binary
+                cover:
+                  type: string
+                  format: binary
+                lyrics:
+                  type: string
+                title:
+                  type: string
+      responses:
+        "200":
+          description: Uploaded file info
+  "/lyrics/{songId}":
+    get:
+      summary: Get lyrics for a song
+      tags:
+        - Lyrics
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: songId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Lyrics content
+    post:
+      summary: Update lyrics for a song
+      tags:
+        - Lyrics
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: songId
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                content:
+                  type: string
+      responses:
+        "200":
+          description: Updated lyrics
+  /versions:
+    get:
+      summary: List all version nodes
+      tags:
+        - Versions
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Version list
+    post:
+      summary: Create a new version node
+      tags:
+        - Versions
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                parent_id:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+      responses:
+        "200":
+          description: Created version
+  "/songs/{id}/versions":
+    get:
+      summary: List version nodes for a song
+      tags:
+        - Versions
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Song versions
+    post:
+      summary: Create and attach a version node to a song
+      tags:
+        - Versions
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                parent_id:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+      responses:
+        "200":
+          description: Created version node
+  /songs:
+    get:
+      summary: List uploaded songs
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: album
+          schema:
+            type: string
+        - in: query
+          name: tags
+          schema:
+            type: string
+        - in: query
+          name: artist
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Song list
+  /user/songs:
+    get:
+      summary: List songs uploaded by the authenticated artist
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Song list
+  "/user/songs/{id}":
+    put:
+      summary: Update your own song metadata
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                album:
+                  type: string
+                tags:
+                  type: string
+                is_public:
+                  type: integer
+      responses:
+        "200":
+          description: Update result
+    delete:
+      summary: Delete one of your songs
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deletion result
+  "/artists/{id}/songs":
+    get:
+      summary: List songs for a specific artist
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Song list
+  "/artists/{id}/albums":
+    get:
+      summary: List albums for a specific artist
+      tags:
+        - Albums
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Album list
+  /profiles:
+    get:
+      summary: List all user profiles
+      tags:
+        - Profiles
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Profile list
+    post:
+      summary: Create or update your profile
+      tags:
+        - Profiles
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                display_name:
+                  type: string
+                bio:
+                  type: string
+                avatar:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: Saved profile
+  "/profiles/{id}":
+    get:
+      summary: Get a user profile
+      tags:
+        - Profiles
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Profile info
+    put:
+      summary: Update a user profile
+      tags:
+        - Profiles
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                display_name:
+                  type: string
+                bio:
+                  type: string
+                avatar:
+                  type: string
+                  format: binary
+      responses:
+        "200":
+          description: Updated profile
+    delete:
+      summary: Delete a user profile
+      tags:
+        - Profiles
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deletion result
+  /albums:
+    get:
+      summary: List all albums
+      tags:
+        - Albums
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Album list
+  /search:
+    get:
+      summary: Search songs, albums and artists
+      tags:
+        - Search
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: q
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Search results
+  /services:
+    get:
+      summary: List active service plans
+      tags:
+        - Services
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Service list
+    post:
+      summary: Create a new service plan
+      tags:
+        - Services
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                tier:
+                  type: string
+                price:
+                  type: number
+                is_active:
+                  type: integer
+      responses:
+        "200":
+          description: Created service
+  "/services/{id}":
+    put:
+      summary: Update a service plan
+      tags:
+        - Services
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                description:
+                  type: string
+                tier:
+                  type: string
+                price:
+                  type: number
+                is_active:
+                  type: integer
+      responses:
+        "200":
+          description: Updated service
+    delete:
+      summary: Deactivate a service plan
+      tags:
+        - Services
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deactivated service
+  /checkout:
+    post:
+      summary: Create a Stripe checkout session
+      tags:
+        - Services
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - service_id
+              properties:
+                service_id:
+                  type: integer
+      responses:
+        "200":
+          description: Checkout session URL
+  /purchases:
+    get:
+      summary: List purchases made by the authenticated user
+      tags:
+        - Services
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Purchase list
+  "/purchases/{id}":
+    get:
+      summary: Retrieve a single purchase record
+      tags:
+        - Services
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Purchase info
+  /contracts:
+    get:
+      summary: List service contracts for the authenticated user
+      tags:
+        - Services
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Contract list
+    post:
+      summary: Create a service contract
+      tags:
+        - Services
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - service_id
+              properties:
+                service_id:
+                  type: integer
+                terms:
+                  type: string
+      responses:
+        "200":
+          description: Created contract
+  "/contracts/{id}":
+    get:
+      summary: Retrieve a single contract
+      tags:
+        - Services
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Contract info
+  "/contracts/{id}/status":
+    put:
+      summary: Update contract status
+      tags:
+        - Services
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  type: string
+                  enum:
+                    - pending
+                    - active
+                    - completed
+                    - cancelled
+      responses:
+        "200":
+          description: Updated status
+  /collab/projects:
+    get:
+      summary: List collaboration projects
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+        - in: query
+          name: role
+          schema:
+            type: string
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Project list
+    post:
+      summary: Create a collaboration project
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Project"
+      responses:
+        "200":
+          description: Created project
+  "/collab/projects/{project_id}/submissions":
+    get:
+      summary: List project submissions
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: project_id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Submission list
+    post:
+      summary: Submit work to a project
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: project_id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: "#/components/schemas/Submission"
+      responses:
+        "200":
+          description: Created submission
+  "/collab/submissions/{submission_id}/feedback":
+    post:
+      summary: Provide feedback on a submission
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: submission_id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Feedback"
+      responses:
+        "200":
+          description: Feedback recorded
+  "/collab/submissions/{id}":
+    patch:
+      summary: Edit a submission's notes or attachments
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                notes:
+                  type: string
+                replace:
+                  type: boolean
+                attachments:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        "200":
+          description: Updated submission
+  "/collab/submissions/{id}/attachments":
+    post:
+      summary: Attach additional files to a submission
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                files:
+                  type: array
+                  items:
+                    type: string
+                    format: binary
+      responses:
+        "200":
+          description: Updated attachments
+  "/collab/submissions/{id}/versions":
+    get:
+      summary: List version nodes for a submission
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Submission versions
+    post:
+      summary: Create and attach a version node to a submission
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                parent_id:
+                  type: integer
+                  nullable: true
+                name:
+                  type: string
+      responses:
+        "200":
+          description: Created submission version node
+  "/collab/submissions/{id}/rating":
+    post:
+      summary: Rate a collaboration submission
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - score
+              properties:
+                score:
+                  type: number
+                criteria:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        "200":
+          description: Rating recorded
+  "/collab/projects/{id}/status":
+    put:
+      summary: Update collaboration project status
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                status:
+                  $ref: "#/components/schemas/ProjectStatus"
+      responses:
+        "200":
+          description: Status updated
+  "/collab/projects/{id}/tags":
+    patch:
+      summary: Update project tags
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                tags:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        "200":
+          description: Updated tags
+  "/collab/projects/{id}/close":
+    post:
+      summary: Close a collaboration project
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Project closed
+  "/collab/projects/{id}/confirm-payment":
+    post:
+      summary: Confirm payment for a project submission
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/PaymentDetails"
+      responses:
+        "200":
+          description: Payment confirmed
+  "/collab/payments/{id}/payout":
+    post:
+      summary: Mark a collaboration payment as paid
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Payout completed
+  "/collab/projects/{id}/payments":
+    get:
+      summary: List payments associated with a project
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Payment list
+  /collab/payments/request:
+    post:
+      summary: Request payment for a submission
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                submission_id:
+                  type: integer
+                amount:
+                  type: number
+                currency:
+                  type: string
+      responses:
+        "200":
+          description: Payment request created
+  "/collab/projects/{id}/dashboard":
+    get:
+      summary: Get progress details for a collaboration project
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Project progress stats
+  "/users/{id}/collab-history":
+    get:
+      summary: List collaboration history for a user
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Collaboration history
+  "/users/{id}/collab-history/pdf":
+    get:
+      summary: Download collaboration history PDF
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: PDF file
+  /collab/user-submissions/me:
+    get:
+      summary: List submissions by the authenticated user
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Submission list
+  /collab/hooks/submission-reviewed:
+    post:
+      summary: Notify that a submission review has completed
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - project_id
+                - submission_id
+              properties:
+                project_id:
+                  type: integer
+                submission_id:
+                  type: integer
+                message:
+                  type: string
+      responses:
+        "200":
+          description: Notification recorded
+  "/collab/projects/{id}/notifications":
+    get:
+      summary: List notifications for a project
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Notification list
+  /collab/recent-activity:
+    get:
+      summary: List recent collaboration activity
+      tags:
+        - Collaboration
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+        - in: query
+          name: limit
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Activity list
+  /admin/collab/disputes:
+    get:
+      summary: List collaboration disputes
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Dispute list
+  "/admin/collab/disputes/{id}/resolve":
+    post:
+      summary: Resolve a collaboration dispute
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                decision:
+                  type: string
+      responses:
+        "200":
+          description: Dispute resolved
+  "/admin/collab/disputes/{id}/blacklist-user":
+    post:
+      summary: Blacklist the user involved in a dispute
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: User blacklisted
+  /admin/collab/users/blacklist:
+    get:
+      summary: List blacklisted collaboration users
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Blacklisted users
+  /admin/pages:
+    get:
+      summary: List all pages
+      tags:
+        - Pages
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Page list
+  "/pages/{slug}":
+    get:
+      summary: Get a published page by slug
+      tags:
+        - Pages
+      parameters:
+        - in: path
+          name: slug
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Page info
+  /messages:
+    post:
+      summary: Send a message to another user
+      tags:
+        - Messages
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content: null
+  /favorites:
+    get:
+      summary: List the authenticated user's favorite songs
+      tags:
+        - Favorites
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Favorite songs list
+  /likes/songs:
+    get:
+      summary: List songs liked by the authenticated user
+      tags:
+        - Likes
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            enum:
+              - 10
+              - 20
+              - 50
+          description: Number of songs per page
+        - in: query
+          name: page
+          schema:
+            type: integer
+          description: Page number to return
+      responses:
+        "200":
+          description: Liked songs list
+  "/favorites/{songId}":
+    post:
+      summary: Add a song to favorites
+      tags:
+        - Favorites
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: songId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Added to favorites
+    delete:
+      summary: Remove a song from favorites
+      tags:
+        - Favorites
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: songId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Removed from favorites
+  "/favorite-artists/{artistId}":
+    post:
+      summary: Favorite an artist
+      tags:
+        - Favorite Artists
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: artistId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Artist favorited
+    delete:
+      summary: Remove artist from favorites
+      tags:
+        - Favorite Artists
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: artistId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Artist unfavorited
+  "/songs/{id}/like":
+    post:
+      summary: Like a song
+      tags:
+        - Likes
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Song liked
+    delete:
+      summary: Unlike a song
+      tags:
+        - Likes
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Song unliked
+  "/albums/{id}/like":
+    post:
+      summary: Like an album
+      tags:
+        - Likes
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Album liked
+    delete:
+      summary: Unlike an album
+      tags:
+        - Likes
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Album unliked
+  "/songs/{id}":
+    get:
+      summary: Get song details including metadata and lyrics
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Song info
+  "/songs/{id}/visibility":
+    put:
+      summary: Change a song's visibility
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                is_public:
+                  type: integer
+      responses:
+        "200":
+          description: Visibility updated
+  "/songs/{id}/title":
+    put:
+      summary: Update a song's title
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+      responses:
+        "200":
+          description: Title updated
+  "/songs/{id}/metadata":
+    put:
+      summary: Update ID3 metadata fields of a song
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                meta_artist:
+                  type: string
+                meta_album:
+                  type: string
+                meta_title:
+                  type: string
+                meta_track:
+                  type: integer
+                meta_year:
+                  type: integer
+      responses:
+        "200":
+          description: Metadata updated
+  "/share-links/{songId}":
+    post:
+      summary: Generate a temporary share link for a song
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: songId
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: false
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                expires_in:
+                  type: integer
+      responses:
+        "200":
+          description: Share link
+    get:
+      summary: Get active share links for a song
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: songId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: List of active share links
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    token:
+                      type: string
+                    url:
+                      type: string
+                    expires_at:
+                      type: integer
+  "/share-links/info/{token}":
+    get:
+      summary: Get info for a share link
+      tags:
+        - Songs
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Share link details
+  /share-links:
+    get:
+      summary: List all active share links for the current user
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Active share links
+  "/share-links/{token}/logs":
+    get:
+      summary: List share link access logs
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+        - in: query
+          name: page
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Log entries
+  "/share-links/{token}/analytics":
+    get:
+      summary: Get analytics for a share link
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Analytics data
+  "/share-links/{token}":
+    delete:
+      summary: Delete a share link
+      tags:
+        - Songs
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Share link deleted successfully
+        "404":
+          description: Token not found
+  "/shared/{token}":
+    get:
+      summary: Access audio using a share token
+      tags:
+        - Songs
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Audio data
+  /analytics:
+    get:
+      summary: Get analytics data
+      tags:
+        - Analytics
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: songId
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Analytics info
+  /user/dashboard-stats:
+    get:
+      summary: Get statistics for the current user
+      tags:
+        - Analytics
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Dashboard stats
+  /admin/analytics/summary:
+    get:
+      summary: Get overall analytics summary
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Analytics summary
+  /admin/users:
+    get:
+      summary: List all users
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: User list
+  "/admin/users/{id}":
+    delete:
+      summary: Remove a user account
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Deletion result
+  "/admin/role/{id}":
+    post:
+      summary: Change a user's role
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                role:
+                  type: string
+      responses:
+        "200":
+          description: Updated role
+  "/admin/takedown/{id}":
+    post:
+      summary: Delete an uploaded song
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Song removed
+  /admin/logs:
+    get:
+      summary: Retrieve admin action logs
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Log entries
+  /admin/activity:
+    get:
+      summary: Retrieve user activity logs
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: user_id
+          schema:
+            type: integer
+        - in: query
+          name: ip
+          schema:
+            type: string
+        - in: query
+          name: sort
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Activity entries
+  "/admin/block_user/{id}":
+    post:
+      summary: Block a user account
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Blocked
+  "/admin/unblock_user/{id}":
+    post:
+      summary: Remove block from a user
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Unblocked
+  /admin/blocked/users:
+    get:
+      summary: List blocked user accounts
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Blocked users
+  /admin/block_ip:
+    post:
+      summary: Block an IP address
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ip:
+                  type: string
+      responses:
+        "200":
+          description: Blocked
+  /admin/unblock_ip:
+    post:
+      summary: Unblock an IP address
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                ip:
+                  type: string
+      responses:
+        "200":
+          description: Unblocked
+  /admin/blocked/ips:
+    get:
+      summary: List blocked IP addresses
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Blocked IPs
+  /admin/share-links:
+    get:
+      summary: List all active share links
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Active share links
+  "/admin/share-links/{token}":
+    delete:
+      summary: Revoke a share link
+      tags:
+        - Admin
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: token
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Share link revoked
+        "404":
+          description: Token not found
+  /register:
+    post:
+      summary: Create a new user
+      tags:
+        - Auth
+  /login:
+    post:
+      summary: Authenticate and obtain a token
+      tags:
+        - Auth
+  /login/2fa:
+    post:
+      summary: Verify TOTP and complete login
+      tags:
+        - Auth
+tags: []
