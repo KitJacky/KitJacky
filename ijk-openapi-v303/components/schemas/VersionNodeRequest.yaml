@@ -1,0 +1,8 @@
+VersionNodeRequest:
+  type: object
+  properties:
+    parent_id:
+      type: integer
+      nullable: true
+    name:
+      type: string

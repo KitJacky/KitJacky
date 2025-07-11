@@ -1,0 +1,10 @@
+Forbidden:
+  description: Forbidden
+  content:
+    application/json:
+      schema:
+        $ref: '#/components/schemas/Error'
+      examples:
+        example:
+          value:
+            error: Forbidden

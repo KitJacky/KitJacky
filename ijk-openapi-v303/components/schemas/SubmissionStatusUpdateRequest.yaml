@@ -1,0 +1,11 @@
+SubmissionStatusUpdateRequest:
+  type: object
+  required:
+    - status
+  properties:
+    status:
+      $ref: '#/components/schemas/SubmissionStatus'
+    accepted_parts:
+      type: array
+      items:
+        type: string

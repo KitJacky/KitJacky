@@ -1,0 +1,7 @@
+SongCoverResponse:
+  type: object
+  properties:
+    id:
+      type: integer
+    cover_url:
+      type: string

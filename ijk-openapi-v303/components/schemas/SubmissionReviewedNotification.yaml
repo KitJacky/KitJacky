@@ -1,0 +1,12 @@
+SubmissionReviewedNotification:
+  type: object
+  required:
+    - project_id
+    - submission_id
+  properties:
+    project_id:
+      type: integer
+    submission_id:
+      type: integer
+    message:
+      type: string

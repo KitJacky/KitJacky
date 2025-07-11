@@ -1,0 +1,7 @@
+CheckoutSessionRequest:
+  type: object
+  required:
+    - service_id
+  properties:
+    service_id:
+      type: integer

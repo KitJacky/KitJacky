@@ -1,0 +1,13 @@
+MessageRequest:
+  type: object
+  required:
+  - recipient_id
+  - subject
+  - body
+  properties:
+    recipient_id:
+      type: integer
+    subject:
+      type: string
+    body:
+      type: string

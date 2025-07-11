@@ -1,0 +1,137 @@
+schemas:
+  RegisterRequest: 
+    $ref: './schemas/RegisterRequest.yaml#/RegisterRequest'
+  RegisterResponse: 
+    $ref: './schemas/RegisterResponse.yaml#/RegisterResponse'
+  LoginRequest: 
+    $ref: './schemas/LoginRequest.yaml#/LoginRequest'
+  LoginResponse: 
+    $ref: './schemas/LoginResponse.yaml#/LoginResponse'
+  TwoFactorRequest: 
+    $ref: './schemas/TwoFactorRequest.yaml#/TwoFactorRequest'
+  TwoFactorResponse:
+    $ref: './schemas/TwoFactorResponse.yaml#/TwoFactorResponse'
+  TwoFactorSetupResponse:
+    $ref: './schemas/TwoFactorSetupResponse.yaml#/TwoFactorSetupResponse'
+  TwoFactorVerifyRequest:
+    $ref: './schemas/TwoFactorVerifyRequest.yaml#/TwoFactorVerifyRequest'
+  TwoFactorVerifyResponse:
+    $ref: './schemas/TwoFactorVerifyResponse.yaml#/TwoFactorVerifyResponse'
+  TwoFactorDisableResponse:
+    $ref: './schemas/TwoFactorDisableResponse.yaml#/TwoFactorDisableResponse'
+  Project: 
+    $ref: './schemas/Project.yaml#/Project'
+  Submission: 
+    $ref: './schemas/Submission.yaml#/Submission'
+  Feedback: 
+    $ref: './schemas/Feedback.yaml#/Feedback'
+  PaymentDetails: 
+    $ref: './schemas/PaymentDetails.yaml#/PaymentDetails'
+  ProjectStatus: 
+    $ref: './schemas/ProjectStatus.yaml#/ProjectStatus'
+  Error: 
+    $ref: './schemas/Error.yaml#/Error'
+  ChangePasswordRequest: 
+    $ref: './schemas/ChangePasswordRequest.yaml#/ChangePasswordRequest'
+  ForgotPasswordRequest: 
+    $ref: './schemas/ForgotPasswordRequest.yaml#/ForgotPasswordRequest'
+  ResetPasswordRequest: 
+    $ref: './schemas/ResetPasswordRequest.yaml#/ResetPasswordRequest'
+  UploadRequest: 
+    $ref: './schemas/UploadRequest.yaml#/UploadRequest'
+  LyricsUpdateRequest: 
+    $ref: './schemas/LyricsUpdateRequest.yaml#/LyricsUpdateRequest'
+  MessageRequest: 
+    $ref: './schemas/MessageRequest.yaml#/MessageRequest'
+  MessageReplyRequest:
+    $ref: './schemas/MessageReplyRequest.yaml#/MessageReplyRequest'
+  MessageResponse:
+    $ref: './schemas/MessageResponse.yaml#/MessageResponse'
+  AlbumCreateRequest:
+    $ref: './schemas/AlbumCreateRequest.yaml#/AlbumCreateRequest'
+  RemixChallengeRequest:
+    $ref: './schemas/RemixChallengeRequest.yaml#/RemixChallengeRequest'
+  RemixSubmissionUpload:
+    $ref: './schemas/RemixSubmissionUpload.yaml#/RemixSubmissionUpload'
+  RemixVoteRequest:
+    $ref: './schemas/RemixVoteRequest.yaml#/RemixVoteRequest'
+  DisputeRequest:
+    $ref: './schemas/DisputeRequest.yaml#/DisputeRequest'
+  AlbumUpdateRequest:
+    $ref: './schemas/AlbumUpdateRequest.yaml#/AlbumUpdateRequest'
+  DisputeResolveRequest:
+    $ref: './schemas/DisputeResolveRequest.yaml#/DisputeResolveRequest'
+  IPAddressRequest:
+    $ref: './schemas/IPAddressRequest.yaml#/IPAddressRequest'
+  UserRoleChangeRequest:
+    $ref: './schemas/UserRoleChangeRequest.yaml#/UserRoleChangeRequest'
+  RoleSlotRequest:
+    $ref: './schemas/RoleSlotRequest.yaml#/RoleSlotRequest'
+  SubmissionEditRequest:
+    $ref: './schemas/SubmissionEditRequest.yaml#/SubmissionEditRequest'
+  SubmissionAttachmentsRequest:
+    $ref: './schemas/SubmissionAttachmentsRequest.yaml#/SubmissionAttachmentsRequest'
+  VersionNodeRequest:
+    $ref: './schemas/VersionNodeRequest.yaml#/VersionNodeRequest'
+  VersionTreeItem:
+    $ref: './schemas/VersionTreeItem.yaml#/VersionTreeItem'
+  SubmissionRatingRequest:
+    $ref: './schemas/SubmissionRatingRequest.yaml#/SubmissionRatingRequest'
+  SubmissionStatus:
+    $ref: './schemas/SubmissionStatus.yaml#/SubmissionStatus'
+  SubmissionStatusUpdateRequest:
+    $ref: './schemas/SubmissionStatusUpdateRequest.yaml#/SubmissionStatusUpdateRequest'
+  ProjectStatusUpdateRequest:
+    $ref: './schemas/ProjectStatusUpdateRequest.yaml#/ProjectStatusUpdateRequest'
+  ProjectTagsRequest:
+    $ref: './schemas/ProjectTagsRequest.yaml#/ProjectTagsRequest'
+  ContractCreateRequest:
+    $ref: './schemas/ContractCreateRequest.yaml#/ContractCreateRequest'
+  PaymentRequest:
+    $ref: './schemas/PaymentRequest.yaml#/PaymentRequest'
+  SubmissionReviewedNotification:
+    $ref: './schemas/SubmissionReviewedNotification.yaml#/SubmissionReviewedNotification'
+  PageCreateRequest:
+    $ref: './schemas/PageCreateRequest.yaml#/PageCreateRequest'
+  PageUpdateRequest:
+    $ref: './schemas/PageUpdateRequest.yaml#/PageUpdateRequest'
+  ProfileForm:
+    $ref: './schemas/ProfileForm.yaml#/ProfileForm'
+  CheckoutSessionRequest:
+    $ref: './schemas/CheckoutSessionRequest.yaml#/CheckoutSessionRequest'
+  ServicePlanRequest:
+    $ref: './schemas/ServicePlanRequest.yaml#/ServicePlanRequest'
+  ShareLinkCreateRequest:
+    $ref: './schemas/ShareLinkCreateRequest.yaml#/ShareLinkCreateRequest'
+  SongMetadataRequest:
+    $ref: './schemas/SongMetadataRequest.yaml#/SongMetadataRequest'
+  SongTitleRequest:
+    $ref: './schemas/SongTitleRequest.yaml#/SongTitleRequest'
+  SongUpdateRequest:
+    $ref: './schemas/SongUpdateRequest.yaml#/SongUpdateRequest'
+  SongVisibilityRequest:
+    $ref: './schemas/SongVisibilityRequest.yaml#/SongVisibilityRequest'
+  SongCoverUpdateRequest:
+    $ref: './schemas/SongCoverUpdateRequest.yaml#/SongCoverUpdateRequest'
+  SongCoverResponse:
+    $ref: './schemas/SongCoverResponse.yaml#/SongCoverResponse'
+  TagCreateRequest:
+    $ref: './schemas/TagCreateRequest.yaml#/TagCreateRequest'
+  TagUpdateRequest:
+    $ref: './schemas/TagUpdateRequest.yaml#/TagUpdateRequest'
+responses:
+  BadRequest:
+    $ref: './responses/BadRequest.yaml#/BadRequest'
+  Unauthorized: 
+    $ref: './responses/Unauthorized.yaml#/Unauthorized'
+  NotFound:
+    $ref: './responses/NotFound.yaml#/NotFound'
+  ServerError:
+    $ref: './responses/ServerError.yaml#/ServerError'
+  Forbidden:
+    $ref: './responses/Forbidden.yaml#/Forbidden'
+  BadGateway:
+    $ref: './responses/BadGateway.yaml#/BadGateway'
+securitySchemes:
+  bearerAuth:
+    $ref: './securitySchemes/bearerAuth.yaml#/bearerAuth'

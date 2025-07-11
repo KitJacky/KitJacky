@@ -1,0 +1,12 @@
+SubmissionEditRequest:
+  type: object
+  properties:
+    notes:
+      type: string
+    replace:
+      type: boolean
+    attachments:
+      type: array
+      items:
+        type: string
+        format: binary

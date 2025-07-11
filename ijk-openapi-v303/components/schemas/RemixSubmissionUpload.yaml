@@ -1,0 +1,11 @@
+RemixSubmissionUpload:
+  type: object
+  properties:
+    attachments:
+      type: array
+      items:
+        type: string
+        format: binary
+    notes:
+      type: string
+      nullable: true

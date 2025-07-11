@@ -1,0 +1,14 @@
+MessageResponse:
+  type: object
+  properties:
+    id:
+      type: integer
+    recipient_id:
+      type: integer
+    subject:
+      type: string
+    body:
+      type: string
+    created_at:
+      type: string
+      format: date-time

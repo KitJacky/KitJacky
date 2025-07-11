@@ -1,0 +1,10 @@
+BadGateway:
+  description: Bad gateway
+  content:
+    application/json:
+      schema:
+        $ref: '#/components/schemas/Error'
+      examples:
+        example:
+          value:
+            error: Bad gateway

@@ -1,0 +1,22 @@
+paths:
+  '<<':
+  - $ref: ./admin.yaml#/paths
+  - $ref: ./albums.yaml#/paths
+  - $ref: ./analytics.yaml#/paths
+  - $ref: ./auth.yaml#/paths
+  - $ref: ./collaboration.yaml#/paths
+  - $ref: ./favorite_artists.yaml#/paths
+  - $ref: ./favorites.yaml#/paths
+  - $ref: ./likes.yaml#/paths
+  - $ref: ./lyrics.yaml#/paths
+  - $ref: ./messages.yaml#/paths
+  - $ref: ./notifications.yaml#/paths
+  - $ref: ./pages.yaml#/paths
+  - $ref: ./profiles.yaml#/paths
+  - $ref: ./search.yaml#/paths
+  - $ref: ./services.yaml#/paths
+  - $ref: ./songs.yaml#/paths
+  - $ref: ./tags.yaml#/paths
+  - $ref: ./remix.yaml#/paths
+  - $ref: ./versions.yaml#/paths
+  - $ref: ./system.yaml#/paths

@@ -1,0 +1,10 @@
+ProfileForm:
+  type: object
+  properties:
+    display_name:
+      type: string
+    bio:
+      type: string
+    avatar:
+      type: string
+      format: binary

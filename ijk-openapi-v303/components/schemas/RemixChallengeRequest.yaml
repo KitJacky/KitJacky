@@ -1,0 +1,17 @@
+RemixChallengeRequest:
+  type: object
+  required:
+    - title
+  properties:
+    title:
+      type: string
+    description:
+      type: string
+      nullable: true
+    original_song_id:
+      type: integer
+      nullable: true
+    deadline:
+      type: string
+      format: date-time
+      nullable: true

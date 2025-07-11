@@ -1,0 +1,12 @@
+Submission:
+  type: object
+  properties:
+    attachments:
+      type: array
+      items:
+        type: string
+        format: binary
+    youtube_url:
+      type: string
+    notes:
+      type: string

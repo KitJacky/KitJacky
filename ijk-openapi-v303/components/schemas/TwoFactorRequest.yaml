@@ -1,0 +1,13 @@
+TwoFactorRequest:
+  type: object
+  required:
+  - tmp_token
+  - totp
+  properties:
+    tmp_token:
+      type: string
+    totp:
+      type: string
+    recaptchaToken:
+      type: string
+      nullable: true

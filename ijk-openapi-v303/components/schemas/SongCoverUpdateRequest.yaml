@@ -1,0 +1,8 @@
+SongCoverUpdateRequest:
+  type: object
+  properties:
+    cover:
+      type: string
+      format: binary
+    cover_url:
+      type: string

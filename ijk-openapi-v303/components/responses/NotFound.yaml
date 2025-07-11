@@ -1,0 +1,10 @@
+NotFound:
+  description: Resource not found
+  content:
+    application/json:
+      schema:
+        $ref: '#/components/schemas/Error'
+      examples:
+        example:
+          value:
+            error: Not found

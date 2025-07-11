@@ -1,0 +1,92 @@
+paths:
+  /notifications:
+    get:
+      summary: List notifications for the authenticated user
+      tags:
+        - Notifications
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: limit
+          schema:
+            type: integer
+        - in: query
+          name: page
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Notification list
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+        "500":
+          $ref: '#/components/responses/ServerError'
+    delete:
+      summary: Clear notifications
+      tags:
+        - Notifications
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Cleared notifications
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "500":
+          $ref: '#/components/responses/ServerError'
+  "/notifications/{id}/read":
+    post:
+      summary: Mark a notification as read
+      tags:
+        - Notifications
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Marked as read
+        "404":
+          description: Not found
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "500":
+          $ref: '#/components/responses/ServerError'
+  /notifications/stream:
+    get:
+      summary: Stream notifications via SSE
+      tags:
+        - Notifications
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: last_id
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Notification events
+          content:
+            text/event-stream:
+              schema:
+                type: string
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "500":
+          $ref: '#/components/responses/ServerError'

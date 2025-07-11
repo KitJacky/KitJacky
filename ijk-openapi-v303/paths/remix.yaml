@@ -1,0 +1,135 @@
+paths:
+  /remix/challenges:
+    get:
+      summary: List remix challenges
+      tags:
+        - Remix
+      parameters:
+        - in: query
+          name: status
+          schema:
+            type: string
+          description: Filter by challenge status
+      responses:
+        "200":
+          description: Challenge list
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+        "500":
+          $ref: '#/components/responses/ServerError'
+    post:
+      summary: Create a new remix challenge
+      tags:
+        - Remix
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemixChallengeRequest'
+      responses:
+        "200":
+          description: Created challenge
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+        "500":
+          $ref: '#/components/responses/ServerError'
+  "/remix/challenges/{id}/submissions":
+    get:
+      summary: List submissions for a challenge
+      tags:
+        - Remix
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+        - in: query
+          name: sort
+          schema:
+            type: string
+            enum:
+              - score
+              - date
+          description: Sort results by score or date
+      responses:
+        "200":
+          description: Submission list
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+        "500":
+          $ref: '#/components/responses/ServerError'
+    post:
+      summary: Submit a remix entry
+      tags:
+        - Remix
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              $ref: '#/components/schemas/RemixSubmissionUpload'
+      responses:
+        "200":
+          description: Submitted remix
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+        "500":
+          $ref: '#/components/responses/ServerError'
+  "/remix/submissions/{id}/vote":
+    post:
+      summary: Vote on a remix submission
+      tags:
+        - Remix
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RemixVoteRequest'
+      responses:
+        "200":
+          description: Vote recorded
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+        "500":
+          $ref: '#/components/responses/ServerError'

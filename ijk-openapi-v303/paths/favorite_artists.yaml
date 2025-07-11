@@ -1,0 +1,48 @@
+paths:
+  "/favorite-artists/{artistId}":
+    post:
+      summary: Favorite an artist
+      tags:
+        - Favorite Artists
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: artistId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Artist favorited
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+        "500":
+          $ref: '#/components/responses/ServerError'
+    delete:
+      summary: Remove artist from favorites
+      tags:
+        - Favorite Artists
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: artistId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Artist unfavorited
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+        "500":
+          $ref: '#/components/responses/ServerError'

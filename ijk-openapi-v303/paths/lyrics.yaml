@@ -1,0 +1,70 @@
+paths:
+  "/lyrics/{songId}":
+    get:
+      summary: Get lyrics for a song
+      tags:
+        - Lyrics
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: songId
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Lyrics content
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+        "500":
+          $ref: '#/components/responses/ServerError'
+    post:
+      summary: Update lyrics for a song
+      tags:
+        - Lyrics
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: path
+          name: songId
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LyricsUpdateRequest'
+            examples:
+              default:
+                value:
+                  content: Hello world
+      responses:
+        "200":
+          description: Updated lyrics
+        "400":
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+              examples:
+                example:
+                  value:
+                    error: Server error
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'

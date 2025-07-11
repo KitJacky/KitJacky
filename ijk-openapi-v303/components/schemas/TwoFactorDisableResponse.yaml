@@ -1,0 +1,5 @@
+TwoFactorDisableResponse:
+  type: object
+  properties:
+    success:
+      type: boolean

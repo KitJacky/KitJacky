@@ -1,0 +1,15 @@
+PaymentDetails:
+  type: object
+  required:
+  - submission_id
+  - amount
+  - currency
+  properties:
+    submission_id:
+      type: integer
+    amount:
+      type: number
+    currency:
+      type: string
+    status:
+      type: string

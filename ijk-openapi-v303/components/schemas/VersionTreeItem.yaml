@@ -1,0 +1,14 @@
+VersionTreeItem:
+  type: object
+  properties:
+    id:
+      type: integer
+    parent_id:
+      type: integer
+      nullable: true
+    name:
+      type: string
+    children:
+      type: array
+      items:
+        $ref: '#/components/schemas/VersionTreeItem'

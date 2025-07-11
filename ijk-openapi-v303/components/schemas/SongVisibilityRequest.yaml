@@ -1,0 +1,5 @@
+SongVisibilityRequest:
+  type: object
+  properties:
+    is_public:
+      type: integer

@@ -1,0 +1,8 @@
+SubmissionStatus:
+  type: string
+  enum:
+    - pending
+    - accepted
+    - rejected
+    - partial
+    - revision_requested

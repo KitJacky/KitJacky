@@ -1,0 +1,10 @@
+ContractCreateRequest:
+  type: object
+  required:
+    - submission_id
+    - terms
+  properties:
+    submission_id:
+      type: integer
+    terms:
+      type: string

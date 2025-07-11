@@ -1,0 +1,7 @@
+TwoFactorVerifyRequest:
+  type: object
+  required:
+    - totp
+  properties:
+    totp:
+      type: string

@@ -1,0 +1,14 @@
+AlbumCreateRequest:
+  type: object
+  required:
+  - name
+  properties:
+    name:
+      type: string
+    description:
+      type: string
+      nullable: true
+    cover_url:
+      type: string
+    is_public:
+      type: integer

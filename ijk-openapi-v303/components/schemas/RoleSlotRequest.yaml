@@ -1,0 +1,13 @@
+RoleSlotRequest:
+  type: object
+  required:
+    - name
+  properties:
+    name:
+      type: string
+    max_slots:
+      type: integer
+    permissions:
+      type: string
+    invite_only:
+      type: boolean

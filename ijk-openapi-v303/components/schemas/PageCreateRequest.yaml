@@ -1,0 +1,17 @@
+PageCreateRequest:
+  type: object
+  required:
+    - name
+    - slug
+  properties:
+    name:
+      type: string
+    slug:
+      type: string
+    content:
+      type: string
+    status:
+      type: string
+      enum:
+        - draft
+        - published

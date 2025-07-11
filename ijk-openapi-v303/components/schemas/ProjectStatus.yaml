@@ -1,0 +1,7 @@
+ProjectStatus:
+  type: string
+  enum:
+  - draft
+  - open
+  - closed
+  - completed

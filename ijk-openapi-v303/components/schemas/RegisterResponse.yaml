@@ -1,0 +1,10 @@
+RegisterResponse:
+  type: object
+  properties:
+    id:
+      type: integer
+    username:
+      type: string
+    role:
+      type: string
+      enum: [artist, record_company]

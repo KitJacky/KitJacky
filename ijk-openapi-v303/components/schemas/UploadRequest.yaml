@@ -1,0 +1,19 @@
+UploadRequest:
+  type: object
+  properties:
+    audio:
+      type: string
+      format: binary
+    cover:
+      type: string
+      format: binary
+    lyrics:
+      type: string
+    title:
+      type: string
+    composer:
+      type: string
+    lyricist:
+      type: string
+    singer:
+      type: string

@@ -1,0 +1,9 @@
+RemixVoteRequest:
+  type: object
+  required:
+    - score
+  properties:
+    score:
+      type: integer
+      minimum: 1
+      maximum: 5

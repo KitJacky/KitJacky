@@ -1,0 +1,5 @@
+TwoFactorVerifyResponse:
+  type: object
+  properties:
+    verified:
+      type: boolean

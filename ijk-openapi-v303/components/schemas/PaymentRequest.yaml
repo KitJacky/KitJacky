@@ -1,0 +1,12 @@
+PaymentRequest:
+  type: object
+  required:
+    - submission_id
+    - amount
+  properties:
+    submission_id:
+      type: integer
+    amount:
+      type: number
+    note:
+      type: string

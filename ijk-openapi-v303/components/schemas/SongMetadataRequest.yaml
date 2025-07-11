@@ -1,0 +1,13 @@
+SongMetadataRequest:
+  type: object
+  properties:
+    meta_artist:
+      type: string
+    meta_album:
+      type: string
+    meta_title:
+      type: string
+    meta_track:
+      type: integer
+    meta_year:
+      type: integer

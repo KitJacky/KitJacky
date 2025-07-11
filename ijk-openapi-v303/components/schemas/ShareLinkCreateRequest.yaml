@@ -1,0 +1,5 @@
+ShareLinkCreateRequest:
+  type: object
+  properties:
+    expires_in:
+      type: integer

@@ -1,0 +1,5 @@
+Feedback:
+  type: object
+  properties:
+    comments:
+      type: string

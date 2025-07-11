@@ -1,0 +1,15 @@
+Project:
+  type: object
+  properties:
+    title:
+      type: string
+    description:
+      type: string
+    price:
+      type: number
+    price_currency:
+      type: string
+    payment_type:
+      type: string
+    tags:
+      type: string

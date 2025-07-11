@@ -1,0 +1,11 @@
+SubmissionRatingRequest:
+  type: object
+  required:
+    - score
+  properties:
+    score:
+      type: number
+    criteria:
+      type: array
+      items:
+        type: string

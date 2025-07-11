@@ -1,0 +1,14 @@
+PageUpdateRequest:
+  type: object
+  properties:
+    name:
+      type: string
+    slug:
+      type: string
+    content:
+      type: string
+    status:
+      type: string
+      enum:
+        - draft
+        - published

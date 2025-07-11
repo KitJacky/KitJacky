@@ -1,0 +1,19 @@
+SongUpdateRequest:
+  type: object
+  properties:
+    title:
+      type: string
+    album:
+      type: string
+    tags:
+      type: string
+    is_public:
+      type: integer
+    description:
+      type: string
+    composer:
+      type: string
+    lyricist:
+      type: string
+    singer:
+      type: string

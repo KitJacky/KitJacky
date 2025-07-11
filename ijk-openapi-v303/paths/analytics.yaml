@@ -1,0 +1,42 @@
+paths:
+  /analytics:
+    get:
+      summary: Get analytics data
+      tags:
+        - Analytics
+      security:
+        - bearerAuth: []
+      parameters:
+        - in: query
+          name: songId
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Analytics info
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+        "500":
+          $ref: '#/components/responses/ServerError'
+  /user/dashboard-stats:
+    get:
+      summary: Get statistics for the current user
+      tags:
+        - Analytics
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Dashboard stats
+        "400":
+          $ref: '#/components/responses/BadRequest'
+        "401":
+          $ref: '#/components/responses/Unauthorized'
+        "404":
+          $ref: '#/components/responses/NotFound'
+        "500":
+          $ref: '#/components/responses/ServerError'

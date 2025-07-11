@@ -1,0 +1,21 @@
+RegisterRequest:
+  type: object
+  required:
+  - username
+  - password
+  - email
+  - role
+  properties:
+    username:
+      type: string
+    password:
+      type: string
+    email:
+      type: string
+      format: email
+    role:
+      type: string
+      enum: [artist, record_company]
+    recaptchaToken:
+      type: string
+      nullable: true

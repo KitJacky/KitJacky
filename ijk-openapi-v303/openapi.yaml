@@ -1,0 +1,8 @@
+openapi: 3.0.3
+info:
+  title: iJK Music Platform API
+  version: 1.0.0
+components:
+  $ref: './components/_index.yaml'
+paths:
+  $ref: './paths/_index.yaml#/paths'

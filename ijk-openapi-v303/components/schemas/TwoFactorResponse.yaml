@@ -1,0 +1,12 @@
+TwoFactorResponse:
+  type: object
+  properties:
+    token:
+      type: string
+    role:
+      type: string
+      enum: [artist, record_company]
+    id:
+      type: integer
+    two_factor_enabled:
+      type: integer

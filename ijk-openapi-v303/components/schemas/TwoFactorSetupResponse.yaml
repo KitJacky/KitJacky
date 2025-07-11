@@ -1,0 +1,5 @@
+TwoFactorSetupResponse:
+  type: object
+  properties:
+    uri:
+      type: string
