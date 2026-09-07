@@ -24,11 +24,12 @@ Started on an 8088 PC. Today I run AI agents on GPUs I operate myself. Developme
 
 ## Now / 正在做
 
-Based in Hong Kong, I keep physics, Unix, language models, Cantonese, and music on the same working line. Trusted methods first; interfaces second.  
-香港為基地，把物理、Unix、語言模型、粵語與音樂放在同一條工作線上。先有可驗算的方法，才有界面。
+Based in Hong Kong, I keep physics, Unix, language models, Cantonese, market data, and music on the same working line. Trusted methods first; interfaces second.  
+香港為基地，把物理、Unix、語言模型、粵語、市場數據與音樂放在同一條工作線上。先有可驗算的方法，才有界面。
 
 | Project | What it is / 是什麼 | Link |
 | :--- | :--- | :--- |
+| **JK-Webb-site Database+** | A modern rebuild of David Webb’s 35 years of Hong Kong market and governance data. Daily collectors, rule-based screens, public backtests. Every figure is queried — never estimated or forecast.<br/>將 David Webb 三十五年香港市場與管治公開數據現代化重建。每日自動採集、規則篩選、公開回測。每個數字都從資料庫查出，從不估算、從不預測。 | [webb-site.3jk.net](https://webb-site.3jk.net) |
 | **Astronomy.HK** | Interactive astro-physics for the Hong Kong night sky, in Traditional Chinese, English, and Japanese. Versioned JK algorithms; no figure without an error bound.<br/>香港夜空的天文・物理互動資料平台（繁中／英／日）。自研 JK 指數家族；不報沒有誤差範圍的數字。 | [astronomy.hk](https://astronomy.hk/) |
 | **writer.hk** | A Chinese writing and publishing platform. Behind it is JKSL, a Cantonese lyric-semantics lexicon covering sense, pronunciation, rhyme, near-rhyme, and register.<br/>中文寫作與發布平台。背後是自建粵語填詞語義詞庫 JKSL——語義、粵音、押韻、協音、語域。 | [writer.hk](https://writer.hk/) |
 | **Cheese Cat** | The public narrative interface of JK AI Agent. Self-hosted GPUs, 7×24. Not a mock dashboard.<br/>JK AI Agent 的公開敘事介面。自建 GPU 7×24，不是模擬儀表板。 | [cheesecat.net](https://cheesecat.net/) |
@@ -45,8 +46,8 @@ Full archive (1997–2026): [jackykit.com/projects](https://jackykit.com/project
 
 ## About / 關於
 
-I built one of Hong Kong’s earliest dating sites at 17. The next two decades moved between Unix infrastructure, high-traffic systems, product engineering, and blockchain. Serious on-chain work started in 2016. The same rule — trusted data and reproducible methods before UI — now applies to LLM evaluation, a Cantonese lexicon, and astronomical computation.  
-17 歲做出香港早期交友網站之一；此後二十年在 Unix 基礎設施、高流量系統、產品工程與區塊鏈之間來回。2016 年起認真做鏈上系統；近年把同一套「先建可信數據與可複現方法」用在 LLM 評測、粵語詞典與天文計算。
+I built one of Hong Kong’s earliest dating sites at 17. The next two decades moved between Unix infrastructure, high-traffic systems, product engineering, and blockchain. Serious on-chain work started in 2016. The same rule — trusted data and reproducible methods before UI — now applies to LLM evaluation, a Cantonese lexicon, astronomical computation, and Hong Kong market data.  
+17 歲做出香港早期交友網站之一；此後二十年在 Unix 基礎設施、高流量系統、產品工程與區塊鏈之間來回。2016 年起認真做鏈上系統；近年把同一套「先建可信數據與可複現方法」用在 LLM 評測、粵語詞典、天文計算與香港市場數據。
 
 Development is a byproduct of curiosity.  
 開發只是好奇心的副產品。
@@ -59,8 +60,8 @@ Development is a byproduct of curiosity.
   AI Agent、LLM 基準、本地推論（llama.cpp / vLLM）、MCP、RAG。
 - **Language** — writer.hk and the JKSL Cantonese lexicon: a scientific method applied to Chinese writing.  
   writer.hk 與 JKSL 粵典：用科學方法對待中文寫作。
-- **Science** — Astronomy.HK: versioned algorithms, published uncertainty, auditable calculation paths.  
-  Astronomy.HK：可版本化的演算法、公開誤差、可審計計算路徑。
+- **Science** — Astronomy.HK and JK-Webb-site: versioned methods, published uncertainty, auditable calculation paths.  
+  Astronomy.HK 與 JK-Webb-site：可版本化的方法、公開誤差、可審計計算路徑。
 - **Creative** — JK Music, photography, and composition: original work released under my own name.  
   JK Music、攝影與作曲：原創作品公開發行。
 
@@ -70,7 +71,7 @@ Development is a byproduct of curiosity.
 
 | Year / 年 | Project | Notes / 說明 |
 | :---: | :--- | :--- |
-| **2026** | Astronomy.HK · writer.hk · Cheese Cat / Frontier · JK Music | Sky data, Cantonese lexicon, agent narrative, original releases. / 天文資料、粵典、Agent 敘事、原創發行 |
+| **2026** | JK-Webb-site Database+ · Astronomy.HK · writer.hk · Cheese Cat / Frontier · JK Music | HK market data, sky data, Cantonese lexicon, agent narrative, original releases. / 港股與管治數據、天文資料、粵典、Agent 敘事、原創發行 |
 | **2025** | JK AI Hub | Gateway integrating 200+ model APIs. / 200+ 模型 API 整合閘道 |
 | **2022** | memenetwork.io | Web3 / MEME Chain |
 | **2016** | jk.hk | Startup toolkit; began serious blockchain research. / 創業工具集；開始認真研究區塊鏈 |
