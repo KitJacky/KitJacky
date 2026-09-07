@@ -103,13 +103,9 @@ Development is a byproduct of curiosity. I started on an 8088 PC, built one of H
 - Medium　[jackykit.medium.com](https://jackykit.medium.com)
 - ENS　`jackykit.eth`
 
-<div align="center">
-
-[![GitHub stats](https://github-readme-stats.vercel.app/api?username=KitJacky&show_icons=true&hide_border=true&theme=radical&count_private=true)](https://github.com/KitJacky)
-[![Top langs](https://github-readme-stats.vercel.app/api/top-langs/?username=KitJacky&layout=compact&hide_border=true&theme=radical)](https://github.com/KitJacky)
-
-<br/>
-
-[![Profile views](https://komarev.com/ghpvc/?username=KitJacky&label=Profile%20views&color=8b1e3f&style=flat-square)](https://github.com/KitJacky)
-
-</div>
+<p align="center">
+  <img src="./profile/stats.svg" alt="GitHub stats" />
+  <img src="./profile/top-langs.svg" alt="Top languages" />
+  <br/>
+  <img src="https://komarev.com/ghpvc/?username=KitJacky&label=Profile%20views&color=8b1e3f&style=flat-square" alt="Profile views" />
+</p>
