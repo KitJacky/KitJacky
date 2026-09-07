@@ -4,8 +4,10 @@
 
 **Scientist & Creative Polymath** · Hong Kong
 
-*Curiosity first. Precision always.*　好奇為先，精準為本。
+*Curiosity first. Precision always.*  
+好奇為先，精準為本。
 
+Started on an 8088 PC. Today I run AI agents on GPUs I operate myself. Development is a byproduct of curiosity.  
 從 8088 個人電腦開始拆系統，到今天自建 GPU 上跑 AI Agent。開發只是好奇心的副產品。
 
 [![Website](https://img.shields.io/badge/jackykit.com-111111?style=for-the-badge&logo=googlechrome&logoColor=white)](https://jackykit.com/)
@@ -20,60 +22,70 @@
 
 ---
 
-## 正在做　Now
+## Now / 正在做
 
+Based in Hong Kong, I keep physics, Unix, language models, Cantonese, and music on the same working line. Trusted methods first; interfaces second.  
 香港為基地，把物理、Unix、語言模型、粵語與音樂放在同一條工作線上。先有可驗算的方法，才有界面。
 
-| 專案 | 做什麼 | 連結 |
+| Project | What it is / 是什麼 | Link |
 | :--- | :--- | :--- |
-| **Astronomy.HK** | 香港夜空的天文・物理互動資料平台。自研 JK 指數家族，三語（繁中／英／日），不報沒有誤差範圍的數字。 | [astronomy.hk](https://astronomy.hk/) |
-| **writer.hk** | 中文寫作與發布平台。背後是自建粵語填詞語義詞庫 JKSL——語義、粵音、押韻、協音、語域。 | [writer.hk](https://writer.hk/) |
-| **Cheese Cat** | JK AI Agent 的公開敘事介面。自建 GPU 7×24，不是模擬儀表板。 | [cheesecat.net](https://cheesecat.net/) |
-| **Cheese Frontier** | 全球 LLM 交叉基準。多源取中位數，每 4 小時自動更新 Cheese Index。 | [models.cheesecat.net](https://models.cheesecat.net/) |
-| **JK Labs LLM Dashboard** | 即時推理監控：Prompt、Response、Stdout、GPU 熱力與 VRAM。 | [llm-dashboard.3jk.net](https://llm-dashboard.3jk.net/) |
-| **JK Quant Trading** | AI 驅動量化平台。本地 LLM 與自主 Agent 產生可解釋訊號。 | [trading-dashboard](https://trading-dashboard.jackykit.com/) |
-| **JK AI Hub** | 一個 OpenAI 相容閘道，接 200+ 模型。 | [aihub.jk.hk](https://aihub.jk.hk/) |
-| **JK Music** | 原創歌曲：作曲、填詞、製作、混音皆獨立完成，發行至全球串流。 | [Music](https://jackykit.com/music) |
+| **Astronomy.HK** | Interactive astro-physics for the Hong Kong night sky, in Traditional Chinese, English, and Japanese. Versioned JK algorithms; no figure without an error bound.<br/>香港夜空的天文・物理互動資料平台（繁中／英／日）。自研 JK 指數家族；不報沒有誤差範圍的數字。 | [astronomy.hk](https://astronomy.hk/) |
+| **writer.hk** | A Chinese writing and publishing platform. Behind it is JKSL, a Cantonese lyric-semantics lexicon covering sense, pronunciation, rhyme, near-rhyme, and register.<br/>中文寫作與發布平台。背後是自建粵語填詞語義詞庫 JKSL——語義、粵音、押韻、協音、語域。 | [writer.hk](https://writer.hk/) |
+| **Cheese Cat** | The public narrative interface of JK AI Agent. Self-hosted GPUs, 7×24. Not a mock dashboard.<br/>JK AI Agent 的公開敘事介面。自建 GPU 7×24，不是模擬儀表板。 | [cheesecat.net](https://cheesecat.net/) |
+| **Cheese Frontier** | A global LLM cross-benchmark. Multi-source medians, auto-refreshed every 4 hours into the Cheese Index.<br/>全球 LLM 交叉基準。多源取中位數，每 4 小時自動更新 Cheese Index。 | [models.cheesecat.net](https://models.cheesecat.net/) |
+| **JK Labs LLM Dashboard** | Live inference monitoring: prompt, response, stdout, GPU thermals, and VRAM.<br/>即時推理監控：Prompt、Response、Stdout、GPU 熱力與 VRAM。 | [llm-dashboard.3jk.net](https://llm-dashboard.3jk.net/) |
+| **JK Quant Trading** | An AI-driven quant platform. Local LLMs and autonomous agents produce explainable signals.<br/>AI 驅動量化平台。本地 LLM 與自主 Agent 產生可解釋訊號。 | [trading-dashboard](https://trading-dashboard.jackykit.com/) |
+| **JK AI Hub** | One OpenAI-compatible gateway to 200+ models.<br/>一個 OpenAI 相容閘道，接 200+ 模型。 | [aihub.jk.hk](https://aihub.jk.hk/) |
+| **JK Music** | Original songs — composed, written, produced, and mixed solo; released to global streaming platforms.<br/>原創歌曲：作曲、填詞、製作、混音皆獨立完成，發行至全球串流。 | [Music](https://jackykit.com/music) |
 
-完整專案年表（1997–2026）見 [jackykit.com/projects](https://jackykit.com/projects)。
+Full archive (1997–2026): [jackykit.com/projects](https://jackykit.com/projects)  
+完整專案年表（1997–2026）：[jackykit.com/projects](https://jackykit.com/projects)
 
 ---
 
-## 關於　About
+## About / 關於
 
+I built one of Hong Kong’s earliest dating sites at 17. The next two decades moved between Unix infrastructure, high-traffic systems, product engineering, and blockchain. Serious on-chain work started in 2016. The same rule — trusted data and reproducible methods before UI — now applies to LLM evaluation, a Cantonese lexicon, and astronomical computation.  
 17 歲做出香港早期交友網站之一；此後二十年在 Unix 基礎設施、高流量系統、產品工程與區塊鏈之間來回。2016 年起認真做鏈上系統；近年把同一套「先建可信數據與可複現方法」用在 LLM 評測、粵語詞典與天文計算。
 
-Development is a byproduct of curiosity. I started on an 8088 PC, built one of Hong Kong's earliest dating sites at 17, and have spent two decades between Unix infrastructure, high-traffic platforms, blockchain, and research. Today that means self-hosted agents, reproducible model evaluation, a Cantonese lexicon, and verifiable sky data — plus original music released under my own name.
+Development is a byproduct of curiosity.  
+開發只是好奇心的副產品。
 
-**五條工作線**
+**Five working lines / 五條工作線**
 
-- **Engineering** — 全端系統、Unix／雲架構、高流量與多租戶，從裸機到 GPU 節點
-- **Intelligence** — AI Agent、LLM 基準、本地推論（llama.cpp / vLLM）、MCP、RAG
-- **Language** — writer.hk 與 JKSL 粵典：用科學方法對待中文寫作
-- **Science** — Astronomy.HK：可版本化的演算法、公開誤差、可審計計算路徑
-- **Creative** — JK Music、攝影與作曲：原創作品公開發行
+- **Engineering** — Full-stack systems, Unix/cloud architecture, high-traffic and multi-tenant platforms, from bare metal to GPU nodes.  
+  全端系統、Unix／雲架構、高流量與多租戶，從裸機到 GPU 節點。
+- **Intelligence** — AI agents, LLM benchmarks, local inference (`llama.cpp` / `vLLM`), MCP, RAG.  
+  AI Agent、LLM 基準、本地推論（llama.cpp / vLLM）、MCP、RAG。
+- **Language** — writer.hk and the JKSL Cantonese lexicon: a scientific method applied to Chinese writing.  
+  writer.hk 與 JKSL 粵典：用科學方法對待中文寫作。
+- **Science** — Astronomy.HK: versioned algorithms, published uncertainty, auditable calculation paths.  
+  Astronomy.HK：可版本化的演算法、公開誤差、可審計計算路徑。
+- **Creative** — JK Music, photography, and composition: original work released under my own name.  
+  JK Music、攝影與作曲：原創作品公開發行。
 
 ---
 
-## 足跡　Milestones
+## Milestones / 足跡
 
-| 年 | | |
+| Year / 年 | Project | Notes / 說明 |
 | :---: | :--- | :--- |
-| **2026** | Astronomy.HK · writer.hk · Cheese Cat / Frontier · JK Music | 天文資料、粵典、Agent 敘事、原創發行 |
-| **2025** | JK AI Hub | 200+ 模型 API 整合閘道 |
+| **2026** | Astronomy.HK · writer.hk · Cheese Cat / Frontier · JK Music | Sky data, Cantonese lexicon, agent narrative, original releases. / 天文資料、粵典、Agent 敘事、原創發行 |
+| **2025** | JK AI Hub | Gateway integrating 200+ model APIs. / 200+ 模型 API 整合閘道 |
 | **2022** | memenetwork.io | Web3 / MEME Chain |
-| **2016** | jk.hk | 創業工具集；開始認真研究區塊鏈 |
-| **2013** | JK NET | 走向國際 |
-| **2007** | Say.la | 社交網絡 |
-| **2005** | Piano | 25 歲開始學鋼琴 |
-| **2001** | 3HOME | 香港主要新聞組／NNTP 服務之一 |
-| **1998** | JK NET | 域名、主機、站長工具；至今仍在營運 |
-| **1997** | Love Club | 17 歲做出香港早期交友網站 |
+| **2016** | jk.hk | Startup toolkit; began serious blockchain research. / 創業工具集；開始認真研究區塊鏈 |
+| **2013** | JK NET | Went international. / 走向國際 |
+| **2007** | Say.la | Social network. / 社交網絡 |
+| **2005** | Piano | Started piano at 25. / 25 歲開始學鋼琴 |
+| **2001** | 3HOME | One of Hong Kong’s major NNTP / news-server services. / 香港主要新聞組／NNTP 服務之一 |
+| **1998** | JK NET | Domains, hosting, webmaster tools; still operating. / 域名、主機、站長工具；至今仍在營運 |
+| **1997** | Love Club | Built one of Hong Kong’s earliest dating sites at 17. / 17 歲做出香港早期交友網站 |
 
 ---
 
-## 技術棧　Stack
+## Stack / 技術棧
 
+Tools I actually ship with. No self-scored percentages.  
 實際在用、而且有公開成品可查的工具。沒有自評百分比。
 
 **Systems**  
@@ -90,13 +102,14 @@ Development is a byproduct of curiosity. I started on an 8088 PC, built one of H
 
 ---
 
-## 連結　Connect
+## Connect / 連結
 
-想看完整作品集、音樂或攝影，請先去官網。合作與討論歡迎來信。
+The full portfolio, music, and photography live on the website. Email is welcome.  
+完整作品集、音樂與攝影請先看官網。合作與討論歡迎來信。
 
-- 官網　[jackykit.com](https://jackykit.com/)
-- 關於　[jackykit.com/about](https://jackykit.com/about)
-- 電郵　[mail@jackykit.com](mailto:mail@jackykit.com)
+- Website / 官網　[jackykit.com](https://jackykit.com/)
+- About / 關於　[jackykit.com/about](https://jackykit.com/about)
+- Email / 電郵　[mail@jackykit.com](mailto:mail@jackykit.com)
 - LinkedIn　[jacky-kit](https://www.linkedin.com/in/jacky-kit-6541b640/)
 - X　[@kitjacky](https://x.com/kitjacky)
 - Instagram　[@jackykit](https://www.instagram.com/jackykit)
@@ -107,5 +120,5 @@ Development is a byproduct of curiosity. I started on an 8088 PC, built one of H
   <img src="./profile/stats.svg" alt="GitHub stats" />
   <img src="./profile/top-langs.svg" alt="Top languages" />
   <br/>
-  <img src="https://komarev.com/ghpvc/?username=KitJacky&label=Profile%20views&color=8b1e3f&style=flat-square" alt="Profile views" />
+  <img src="https://hits.sh/github.com/KitJacky.svg?style=flat-square&label=Profile%20views%20%2F%20%E7%80%8F%E8%A6%BD&color=8b1e3f" alt="Profile views" />
 </p>
